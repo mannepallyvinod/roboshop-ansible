@@ -17,4 +17,4 @@
 - name: start mongod
   ansible.builtin.systemd:
     name: mongod
-    enable: true
+    enabled: true

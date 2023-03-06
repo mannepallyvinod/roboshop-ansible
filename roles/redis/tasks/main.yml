@@ -1,3 +1,11 @@
-- name: redis
-  debug:
-    msg: redis
+- name: Install Redis Repos
+  ansible.builtin.yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    state: installed
+    disable_grg_check: yes
+
+- name: Enable & Install the Redis
+  ansible.builtin.dnf:
+    name: "@redis:remi-6.2"
+    state: latest
+

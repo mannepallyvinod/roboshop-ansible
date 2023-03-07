@@ -1,7 +1,7 @@
 - name: Setup ErLang Repo
   ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 
-- name: Set RabbitMQ Repos
+- name: Install RabbitMQ Repos
   ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
 
 - name: Install ErLang and RabbitMQ
@@ -19,10 +19,13 @@
 
 - name: Add application user
   community.rabbitmq.rabbitmq_user:
-    user: roboshop
-    password: roboshop123
+    user: "{{ lookup('amazon.aws.aws_ssm', '{{env}}.{{component}}.amqp_user', region='us-east-1') }}"
+    password: "{{ lookup('amazon.aws.aws_ssm', '{{env}}.{{component}}.amqp_pass', region='us-east-1') }}"
     vhost: /
     configure_priv: .*
     read_priv: .*
     write_priv: .*
     state: present
+
+
+

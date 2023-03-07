@@ -7,7 +7,7 @@
           dest: /etc/yum.repos.d/mongodb.repo
     - name: Install MongoDB Client
       ansible.builtin.yum:
-          name: mongdb-org-shell
+          name: mongodb-org-shell
           state: installed
 
     - name: Load Schema

@@ -2,16 +2,16 @@
   ansible.builtin.copy:
     src: mongodb.repo
     dest: /etc/yum.repos.d/mongodb.repo
-  when: schema_type == "mongo"
+  when: schema_type == "mongodb"
 
 - name: Install MongoDB Client
   ansible.builtin.yum:
     name: mongodb-org-shell
     state: installed
-  when: schema_type == "mongo"
+  when: schema_type == "mongodb"
 
 - name: Load schema
-  ansible.builtin.shell: mongo --host mongodb-dev.devopsb71services.site </app/schema/${{component}}.js
+  ansible.builtin.shell: mongodb --host mongodb-dev.devopsb71services.site </app/schema/${{component}}.js
 
 - name: Install MySQL Client
   ansible.builtin.yum:

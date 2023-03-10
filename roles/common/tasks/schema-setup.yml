@@ -12,6 +12,7 @@
 
 - name: Load schema
   ansible.builtin.shell: mongo --host mongodb-dev.devopsb71services.site </app/schema/${{component}}.js
+  when: schema_type == "mongo"
 
 - name: Install MySQL Client
   ansible.builtin.yum:
@@ -21,4 +22,5 @@
 
 - name: Load schema
   ansible.builtin.shell: mysql --host mysql-dev.devopsb71services.site -uroot -pRoboShop@1 </app/schema/${{component}}.sql
+  when: schema_type == "mongo"
 

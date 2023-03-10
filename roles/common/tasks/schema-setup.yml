@@ -1,27 +1,24 @@
-- name: MongoDB Schema
+- name: Setup MongoDB Repo file
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
   when: schema_type == "mongo"
-  block:
-    - name: Setup MongoDB Repo file
-      ansible.builtin.copy:
-        src: mongodb.repo
-        dest: /etc/yum.repos.d/mongodb.repo
 
-    - name: Install MongoDB Client
-      ansible.builtin.yum:
-        name: mongodb-org-shell
-        state: installed
+- name: Install MongoDB Client
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: installed
+  when: schema_type == "mongo"
 
-    - name: Load schema
-      ansible.builtin.shell: mongo --host mongodb-dev.devopsb71services.site </app/schema/${component}.js
+- name: Load schema
+  ansible.builtin.shell: mongo --host mongodb-dev.devopsb71services.site </app/schema/${component}.js
 
-    - name: MySQL Schema
-      when: schema_type == "mysql"
-      block:
-        - name: Install MySQL Client
-          ansible.builtin.yum:
-            name: mysql
-            state: installed
+- name: Install MySQL Client
+  ansible.builtin.yum:
+    name: mysql
+    state: installed
+  when: schema_type == "mysql"
 
-        - name: Load schema
-          ansible.builtin.shell: mysql --host mysql-dev.devopsb71services.site -uroot -pRoboShop@1 </app/schema/${component}.sql
+- name: Load schema
+  ansible.builtin.shell: mysql --host mysql-dev.devopsb71services.site -uroot -pRoboShop@1 </app/schema/${component}.sql
 

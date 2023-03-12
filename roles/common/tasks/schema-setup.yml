@@ -11,6 +11,10 @@
         name: mongodb-org-shell
         state: installed
 
+    - name: Fetch file
+      ansible.builtin.fetch:
+        name: /app/schema/cart.js
+
     - name: Load Schema
       ansible.builtin.shell: mongo --host mongodb-dev.devopsb71services.site </app/schema/{{component}}.js
 

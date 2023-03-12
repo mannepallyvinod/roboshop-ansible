@@ -1,10 +1,10 @@
 - name: MongoDB Schema
   when: schema_type == "mongo"
   block:
-    - name: Setup Mongo repo file
+    - name: Setup MongoDB repo file
       ansible.builtin.copy:
         src: mongodb.repo
-        dest: /etc/yum.repos.d/mongodb.repo
+        dest: /etc/yum.repos.d/mongo.repo
 
     - name: Install MongoDB Client
       ansible.builtin.yum:

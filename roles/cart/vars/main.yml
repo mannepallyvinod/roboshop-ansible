@@ -1,3 +1,2 @@
 component: cart
 schema_type: mongo
-schema_type: mysql

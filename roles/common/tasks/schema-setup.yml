@@ -1,7 +1,7 @@
 - name: MongoDB Schema
-  when: schema_type == "mongodb"
+  when: schema_type == "mongo"
   block:
-    - name: Setup MongoDB repo file
+    - name: Setup Mongo repo file
       ansible.builtin.copy:
         src: mongodb.repo
         dest: /etc/yum.repos.d/mongodb.repo
@@ -12,7 +12,7 @@
         state: installed
 
     - name: Load Schema
-      ansible.builtin.shell: mongodb --host mongodb-dev.devopsb71.services.site </app/schema/{{component}}.js
+      ansible.builtin.shell: mongo --host mongodb-dev.devopsb71.services.site </app/schema/{{component}}.js
 
 - name: MySQL Schema
   when: schema_type == "mysql"

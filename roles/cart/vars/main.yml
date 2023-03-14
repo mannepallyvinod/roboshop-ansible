@@ -1,2 +1,2 @@
 component: cart
-schema_type: redis
+node_exporter: true

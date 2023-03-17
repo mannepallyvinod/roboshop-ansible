@@ -1,2 +1,4 @@
 component: catalogue
 schema_type: mongodb
+
+node_exporter: true

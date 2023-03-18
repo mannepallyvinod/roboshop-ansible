@@ -6,7 +6,7 @@
 - name: Update alerts Configuration
   ansible.builtin.template:
     src: "{{ item }}"
-    dest: /opt/prometheus/{{ item }}
+    dest: /opt/prometheus/{{ item }}.yml
   loop:
     - service-down-alerts.yml
     - alerts.yml

@@ -1,5 +1,5 @@
 groups:
-  - name: rooboshop
+  - name: roboshop
     rules:
       - alert: Server Down
         expr: up < 1

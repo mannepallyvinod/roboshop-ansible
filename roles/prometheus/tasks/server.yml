@@ -9,7 +9,6 @@
     dest: /opt/prometheus/{{ item }}
   loop: "{{ alert_files }}"
 
-
 - name: Restart prometheus
   ansible.builtin.systemd:
     name: prometheus

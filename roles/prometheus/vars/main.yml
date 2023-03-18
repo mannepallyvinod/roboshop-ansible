@@ -7,5 +7,5 @@ components:
   - {  name: frontend, service_name: nginx }
 
 alert_files:
-  - service-down-alerts.yml
+  - server-down-alerts.yml
   - alerts.yml

@@ -1,0 +1,10 @@
+groups:
+  - name: rooboshop
+    rules:
+      - alert: Server Down
+        expr: up < 1
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: Server Down

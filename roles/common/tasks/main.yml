@@ -8,7 +8,7 @@
   when: node_exporter
 
 - name: Install Filebeat
-  ansible.builtin.import_roles:
+  ansible.builtin.import_role:
     name: elk
     tasks_from: filebeat
   when: filebeat

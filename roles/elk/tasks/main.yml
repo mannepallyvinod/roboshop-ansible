@@ -7,3 +7,4 @@
   when: filebeat
   ansible.builtin.import_tasks:
     file: filebeat.yml
+

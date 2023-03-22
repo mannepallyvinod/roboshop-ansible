@@ -1,2 +1,1 @@
-elk: false
-filebeat: false
+### make this empty because priority variables should be placed here####

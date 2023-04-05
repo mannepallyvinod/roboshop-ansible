@@ -14,9 +14,6 @@
   ansible.builtin.shell: npm install
   args:
     chdir: /app
-#  community.general.npm:
-#    path: /app
-
 
 
 - name: Schema Setup

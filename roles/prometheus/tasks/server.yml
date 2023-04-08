@@ -3,6 +3,11 @@
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
 
+- name: Update Prometheus Configuration
+  ansible.builtin.template:
+    src: prometheus.yml
+    dest: /opt/prometheus/prometheus.yml
+
 - name: Update Alerts Configuration
   ansible.builtin.template:
     src: "{{ item }}"

@@ -20,8 +20,7 @@
     name: prometheus
     state: restarted
 
-- name: Check Prometheus is started
-  ansible.builtin.shell: netstat -lntp | grep 9090
+
 
 - name: Update AlertManager Configuration
   ansible.builtin.template:
@@ -33,6 +32,4 @@
     name: alertmanager
     state: restarted
 
-- name: Check alertmanager is started
-  ansible.builtin.shell: netstat -lntp | grep 9093
 

@@ -10,8 +10,8 @@ receivers:
       - to: sritirumala30@gmail.com
         from: sritirumala30@gmail.com
         smarthost: "email-smtp.us-east-1.amazonaws.com:587"
-        auth_username: "{{SES_SMTP_USERNAME}}"
-        auth_password: "{{SES_SMTP_PASSWORD}}"
+        auth_username: "AKIARXN4WYHHE6IME5RZ"
+        auth_password: "BJr6I2KpEDczIZaTw94tI4N7YTxeE6n5VK91R2l7ptrg"
         require_tls: true
 inhibit_rules:
   - source_match:
